@@ -54,11 +54,8 @@ function clickOnStartBtn() {
     hours.textContent = hour;
     minutes.textContent = min;
     seconds.textContent = sec;
-    
   }, 1000);
 }
-
-
 
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
@@ -79,7 +76,3 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
-
-
-
-

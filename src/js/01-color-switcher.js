@@ -4,23 +4,20 @@ const selectors = {
   stoptrBtn: document.querySelector('[data-stop]'),
 };
 let intervalId = null;
-let bool = true;
 selectors.startrBtn.addEventListener('click', clickOnStart);
 selectors.stoptrBtn.addEventListener('click', clickOnStop);
 
 function clickOnStart() {
-  if (bool === true) {
+  selectors.body.style.backgroundColor = getRandomHexColor();
+  intervalId = setInterval(() => {
     selectors.body.style.backgroundColor = getRandomHexColor();
-    intervalId = setInterval(() => {
-      selectors.body.style.backgroundColor = getRandomHexColor();
-    }, 1000);
-    bool = false;
-  }
+  }, 1000);
+  selectors.startrBtn.setAttribute('disabled', true);
 }
 
 function clickOnStop() {
   clearInterval(intervalId);
-  bool = true;
+  selectors.startrBtn.removeAttribute('disabled');
 }
 
 function getRandomHexColor() {
@@ -28,6 +25,3 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
-
-
-
